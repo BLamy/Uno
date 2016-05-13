@@ -1,0 +1,8 @@
+C:\Users\blamy\Uno\BlackjackTest\bin\Debug\BlackjackTest.dll
+C:\Users\blamy\Uno\BlackjackTest\bin\Debug\BlackjackTest.pdb
+C:\Users\blamy\Uno\BlackjackTest\bin\Debug\Blackjack.exe
+C:\Users\blamy\Uno\BlackjackTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\blamy\Uno\BlackjackTest\bin\Debug\Blackjack.pdb
+C:\Users\blamy\Uno\BlackjackTest\obj\Debug\UnoTest.csprojResolveAssemblyReference.cache
+C:\Users\blamy\Uno\BlackjackTest\obj\Debug\BlackjackTest.dll
+C:\Users\blamy\Uno\BlackjackTest\obj\Debug\BlackjackTest.pdb

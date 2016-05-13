@@ -1,0 +1,16 @@
+C:\Users\blamy\Uno\Blackjack\bin\Debug\Blackjack.exe.config
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack.exe
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack.pdb
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Uno.csprojResolveAssemblyReference.cache
+C:\Users\blamy\Uno\Blackjack\obj\Debug\MainWindow.g.cs
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Views\GameWindow.g.cs
+C:\Users\blamy\Uno\Blackjack\obj\Debug\App.g.cs
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack_MarkupCompile.cache
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack_MarkupCompile.lref
+C:\Users\blamy\Uno\Blackjack\bin\Debug\Blackjack.exe
+C:\Users\blamy\Uno\Blackjack\bin\Debug\Blackjack.pdb
+C:\Users\blamy\Uno\Blackjack\obj\Debug\MainWindow.baml
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Views\GameWindow.baml
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack.g.resources
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack.Properties.Resources.resources
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Uno.csproj.GenerateResource.Cache

@@ -1,0 +1,33 @@
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\bin\Debug\Blackjack.exe.config
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\bin\Debug\Blackjack.exe
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\bin\Debug\Blackjack.pdb
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\Blackjack.csprojResolveAssemblyReference.cache
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\MainWindow.g.cs
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\App.g.cs
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\Blackjack_MarkupCompile.cache
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\Blackjack_MarkupCompile.lref
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\MainWindow.baml
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\Blackjack.g.resources
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\Blackjack.Properties.Resources.resources
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\Blackjack.csproj.GenerateResource.Cache
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\Blackjack.exe
+c:\users\student\documents\visual studio 2015\Projects\Blackjack\Blackjack\obj\Debug\Blackjack.pdb
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\bin\Debug\Blackjack.exe.config
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Blackjack.exe
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Blackjack.pdb
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\bin\Debug\Blackjack.exe
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\bin\Debug\Blackjack.pdb
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Blackjack.csprojResolveAssemblyReference.cache
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\MainWindow.g.cs
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\App.g.cs
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Blackjack_MarkupCompile.cache
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Blackjack_MarkupCompile.lref
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\MainWindow.baml
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Blackjack.g.resources
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Blackjack.Properties.Resources.resources
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Blackjack.csproj.GenerateResource.Cache
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Views\GameWindow.g.cs
+C:\Users\Student\Desktop\Blackjack (1)\Blackjack\Blackjack\obj\Debug\Views\GameWindow.baml
+C:\Users\blamy\Uno\Blackjack\bin\Debug\Blackjack.exe.config
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack.exe
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack.pdb
