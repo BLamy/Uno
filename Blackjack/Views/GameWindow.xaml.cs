@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Uno.Models;
 
 namespace Uno.Views
 {
@@ -20,12 +21,18 @@ namespace Uno.Views
     /// </summary>
     public partial class GameWindow : Window
     {
-
+        /// <summary>
+        /// The name of the player passed in the constructor
+        /// </summary>
         public string PlayerName { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public GameBoardViewModel GameBoardVM { get; set; }
 
         const int CARD_WIDTH = 113;
+
         const int CARD_HEIGHT = 157;
 
         Image FaceDownImage;
@@ -41,25 +48,32 @@ namespace Uno.Views
         {
             this.PlayerTextBlock.Text = $"Player: {this.PlayerName}";
             this.GameBoardVM = new GameBoardViewModel();
+            UpdatePlayerField();
+            UpdateComputerField();
+            
         }
-
-        private void UpdatePlayerField()
+        
+        private void UpdateHandForPlayer(StackPanel field, List<Card> hand)
         {
-            ClearPlayField(PlayerField);
-            foreach (var card in GameBoardVM.PlayerHand)
+            ClearPlayField(field);
+            foreach (var card in hand)
             {
                 Image CardImage = new Image();
                 CardImage.Height = CARD_HEIGHT;
                 CardImage.Width = CARD_WIDTH;
-                CardImage.Source = new BitmapImage(new Uri(card.ImageLocation));
-                PlayerField.Children.Add(CardImage);
+                CardImage.Source = new BitmapImage(new Uri(card.ImageLocation, UriKind.Relative));
+                field.Children.Add(CardImage);
             }
-            UpdatePlayerScore();
         }
 
-        private void UpdatePlayerScore()
+        private void UpdatePlayerField()
         {
-            PlayerScoreTextBlock.Text = GameBoardVM.PlayerScore.ToString();
+            UpdateHandForPlayer(PlayerField, GameBoardVM.PlayerHand);
+        }
+
+        private void UpdateComputerField()
+        {
+            UpdateHandForPlayer(ComputerField, GameBoardVM.ComputerHand);
         }
 
         private void ClearPlayField(StackPanel field)
@@ -67,35 +81,10 @@ namespace Uno.Views
             field.Children.RemoveRange(0, field.Children.Count);
         }
 
-        private void ShowInitialDealerCards()
+        private void button_Click(object sender, RoutedEventArgs e)
         {
-            FaceDownImage = new Image();
-            FaceDownImage.Height = CARD_HEIGHT;
-            FaceDownImage.Width = CARD_WIDTH;
-            FaceDownImage.Source = new BitmapImage(new Uri("/Assets/CardBack.png", UriKind.Relative));
-            DealerField.Children.Add(FaceDownImage);
-
-            Image CardImage = new Image();
-            CardImage.Height = CARD_HEIGHT;
-            CardImage.Width = CARD_WIDTH;
-            CardImage.Source = new BitmapImage(new Uri(GameBoardVM.DealerHand[1].ImageLocation));
-            DealerField.Children.Add(CardImage);
-        }
-
-        private void HitButton_Click(object sender, RoutedEventArgs e)
-        {
-            GameBoardVM.Hit();
-            UpdatePlayerField();
-            UpdatePlayerScore();
-        }
-
-        private void StandButton_Click(object sender, RoutedEventArgs e)
-        {
-            FaceDownImage.Source = new BitmapImage(new Uri(GameBoardVM.DealerHand[0].ImageLocation));
-            PlayerDealerHand();
-        }
-        private void PlayerDealerHand()
-        {
+            Console.Write(GameBoardVM.PlayerHand);
+            Console.Write(GameBoardVM.ComputerHand);
         }
     }
 }

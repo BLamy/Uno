@@ -11,7 +11,7 @@ namespace Uno.Services.Responses
     [DataContract]
     public class DrawResponse
     {
-        [DataMember(Name = "success")]
+        [DataMember(Name = "remaining")]
         public int RemainingCards { get; set; }
 
         [DataMember(Name = "cards")]

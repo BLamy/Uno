@@ -5,69 +5,92 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using Uno.Models.Enums;
+using Blackjack.Models.Enums;
 
 namespace Uno.Models
 {
     [DataContract]
     public class Card
     {
-        private int cardValue;
-        public int CardValue {
-            get {
-                int cardNumericValue;
-                if (CardValueStr.Equals("KING") ||
-                    CardValueStr.Equals("Queen") ||
-                    CardValueStr.Equals("Jack")) {
-                    cardNumericValue = 10;
-                } 
-                else if (CardValueStr.Equals("ACE"))
+        public Face Face
+        {
+            get
+            {
+                switch(CardValueStr)
                 {
-                    cardNumericValue = 11;
+                    case "KING":
+                        return Face.Wild;
+
+                    case "QUEEN":
+                        return Face.Draw2;
+
+                    case "JACK":
+                        return Face.Skip;
+
+                    case "ACE":
+                        return Face.Draw4;
+
+                    default:
+                        return (Face)int.Parse(CardValueStr);
                 }
-                else
-                {
-                    cardNumericValue = int.Parse(CardValueStr);
-                }
-                return cardNumericValue;
-            }
-            set {
-                cardValue = value;
             }
         }
 
-        public Suit CardSuit {
-            get {
-                Suit suit;
+        public Color Color
+        {
+            get
+            {
+                if (Face == Face.Wild)
+                {
+                    return Color.Wild;
+                }
                 switch (SuitValueStr)
                 {
                     case "CLUBS":
-                        suit = Suit.Clubs;
-                        break;
+                        return Color.Red;
                     case "DIAMONDS":
-                        suit = Suit.Diamonds;
-                        break;
+                        return Color.Blue;
                     case "HEARTS":
-                        suit = Suit.Hearts;
-                        break;
-                    case "Spades":
-                        suit = Suit.Spades;
-                        break;
+                        return Color.Yellow;
+                    case "SPADES":
+                        return Color.Green;
                     default:
-                        suit = Suit.Spades;
-                        break;
+                        return Color.Wild;
                 }
-                return suit;
             }
-            set {
+        }
 
+        public static string ColorAsString(Color color)
+        {
+            return color.ToString().Substring(0, 1).ToLower();
+        }
+
+        public static string FaceAsString(Face face)
+        {
+            switch (face) {
+                case Face.Wild:
+                    return "";
+                case Face.Skip:
+                    return "s";
+                case Face.Reverse:
+                    return "r";
+                case Face.Draw2:
+                    return "d";
+                case Face.Draw4:
+                    return "4";
+                default:
+                    return (int)face + "";
+            }
+        }
+        public string ImageLocation { get
+            {
+                
+                return $"\\Assets\\{Card.ColorAsString(Color)}{Card.FaceAsString(Face)}.png";
             }
         }
 
 
         #region Members
-        [DataMember(Name = "image")]
-        public string ImageLocation { get; set; }
-
         [DataMember(Name = "value")]
         public string CardValueStr { get; set; }
 

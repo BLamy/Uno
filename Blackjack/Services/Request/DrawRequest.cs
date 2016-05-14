@@ -10,7 +10,5 @@ namespace Uno.Services.Request
     {
         public string DeckID { get; set; }
         public int NumberOfCards { get; set; }
-        
-        
     }
 }

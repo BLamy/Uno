@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Label x:Name="label" Content="Black Jack Fun&#xD;&#xA;" HorizontalAlignment="Center" Margin="135,24,0,0" VerticalAlignment="Top" Width="225" Height="26"/>
-        <TextBox x:Name="PlayerNameTextBox" HorizontalAlignment="Center" Height="23" Margin="204,189,193,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label" Content="Uno" HorizontalAlignment="Center" Margin="137,24,155,0" VerticalAlignment="Top" Width="225" Height="26" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="PlayerNameTextBox" HorizontalAlignment="Center" Height="23" Margin="204,202,193,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
         <Button x:Name="NewGameButton" Content="New Game" HorizontalAlignment="Center" Margin="204,245,193,0" VerticalAlignment="Top" Width="120" Click="NewGameButton_Click" Background="#FF3EC558"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="214,55,0,0" VerticalAlignment="Top" Width="72" Source="http://deckofcardsapi.com/static/img/AS.png"/>
-        <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="100" Margin="233,55,0,0" VerticalAlignment="Top" Width="73" Source="http://deckofcardsapi.com/static/img/KS.png" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="214,55,0,0" VerticalAlignment="Top" Width="72" Source="Assets\bs.png"/>
+        <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="100" Margin="233,55,0,0" VerticalAlignment="Top" Width="73" Source="Assets\w4.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -21,6 +21,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <Label x:Name="label1" Content="Enter Your Name:&#xD;&#xA;" HorizontalAlignment="Left" Margin="200,176,0,0" VerticalAlignment="Top" Height="26"/>
 
     </Grid>
 </Window>

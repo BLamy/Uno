@@ -5,45 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uno.Views"
         mc:Ignorable="d"
-        Title="BlackJack" Height="300" Width="300" WindowState="Maximized">
+        Title="Uno" Height="476.873" Width="535.59" WindowState="Maximized">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="52*" />
+            <ColumnDefinition Width="214*"/>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="175*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Name="DealerPanel" Grid.Column="0" Grid.Row="0">
-            <TextBlock FontSize="18">Dealer</TextBlock>
-            <StackPanel Name="DealerField" Orientation="Horizontal">
+        <StackPanel Name="ComputerPanel" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+            <StackPanel Name="ComputerField" Orientation="Horizontal">
 
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="0">
-            <Image Source="/Assets/dealer.png" Width ="75" HorizontalAlignment="Left" />
-            <TextBlock FontSize="18">Score</TextBlock>
-            <TextBlock Name="DealerScoreTextBlock" FontSize="20" FontWeight="Bold"></TextBlock>
+        <StackPanel Grid.Column="3" Grid.Row="0">
+            <Image Source="/Assets/computer.png" Width="75" HorizontalAlignment="Left" />
         </StackPanel>
 
-        <StackPanel Name="PlayerPanel" Grid.Column="0" Grid.Row="1">
+        <StackPanel Name="PlayerPanel" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
             <TextBlock Name="PlayerTextBlock" FontSize="18"></TextBlock>
             <StackPanel Name="PlayerField" Orientation="Horizontal">
-                
+
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Name="HitButton" Width="100" Height="50" Click="HitButton_Click">Hit</Button>
-                <Button Name="StandButton" Width="100" Height="50" Click="StandButton_Click">Stand</Button>
-            </StackPanel>
+            <StackPanel Orientation="Horizontal"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="1">
+        <StackPanel Grid.Column="3" Grid.Row="1">
             <Image Source="/Assets/player.png" Width="75" HorizontalAlignment="Left" />
-            <TextBlock FontSize="18">Score</TextBlock>
             <TextBlock Name="PlayerScoreTextBlock" FontSize="20" FontWeight="Bold"></TextBlock>
+            <Button x:Name="button" Content="Do the Thing" Click="button_Click"/>
         </StackPanel>
     </Grid>
 </Window>

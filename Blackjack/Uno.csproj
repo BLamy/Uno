@@ -58,7 +58,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Card.cs" />
-    <Compile Include="Models\Enums\CardTypes.cs" />
+    <Compile Include="Models\Enums\Face.cs" />
     <Compile Include="Models\Enums\Color.cs" />
     <Compile Include="Models\Enums\Suit.cs" />
     <Compile Include="Services\DataService.cs" />
@@ -155,7 +155,7 @@
     <Resource Include="Assets\rr.png" />
     <Resource Include="Assets\rs.png" />
     <Resource Include="Assets\w4.png" />
-    <Resource Include="Assets\wild.png" />
+    <Resource Include="Assets\w.png" />
     <Resource Include="Assets\y0.png" />
     <Resource Include="Assets\y1.png" />
     <Resource Include="Assets\y2.png" />
@@ -174,6 +174,9 @@
     <Resource Include="Assets\CardBack.png" />
     <Resource Include="Assets\dealer.png" />
     <Resource Include="Assets\player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\computer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
