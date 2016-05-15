@@ -14,7 +14,8 @@
             <ColumnDefinition Width="175*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -28,7 +29,7 @@
             <Image Source="/Assets/computer.png" Width="75" HorizontalAlignment="Left" />
         </StackPanel>
 
-        <StackPanel Name="PlayerPanel" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+        <StackPanel Name="PlayerPanel" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
             <TextBlock Name="PlayerTextBlock" FontSize="18"></TextBlock>
             <StackPanel Name="PlayerField" Orientation="Horizontal">
 
@@ -36,10 +37,12 @@
             <StackPanel Orientation="Horizontal"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="3" Grid.Row="1">
+        <StackPanel Grid.Column="3" Grid.Row="2">
             <Image Source="/Assets/player.png" Width="75" HorizontalAlignment="Left" />
             <TextBlock Name="PlayerScoreTextBlock" FontSize="20" FontWeight="Bold"></TextBlock>
             <Button x:Name="button" Content="Do the Thing" Click="button_Click"/>
         </StackPanel>
+        <Image Name="PlayPile" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="10,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="button1" Grid.ColumnSpan="2" Content="Draw" Grid.Column="1" HorizontalAlignment="Left" Margin="148,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

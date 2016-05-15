@@ -50,30 +50,74 @@ namespace Uno.Views
             this.GameBoardVM = new GameBoardViewModel();
             UpdatePlayerField();
             UpdateComputerField();
-            
+            UpdateLastCard();
         }
-        
-        private void UpdateHandForPlayer(StackPanel field, List<Card> hand)
+
+        private void UpdateLastCard()
+        {
+            String lastCardLocation = this.GameBoardVM.lastCard.ImageLocation;
+            this.PlayPile.Source = new BitmapImage(new Uri(lastCardLocation, UriKind.Relative));
+        }
+
+        private void HandlePlayerCardClick(object sender, EventArgs e)
+        {
+            if (this.GameBoardVM.turn != Player.player)
+                return;
+
+            Button button = (Button)sender;
+            Card card = (Card)button.Tag;
+            if (GameBoardVM.tryPlay(card))
+            {
+                UpdatePlayerField();
+                UpdateLastCard();
+            }
+        }
+
+        private void HandleComputerCardClick(object sender, EventArgs e)
+        {
+            if (this.GameBoardVM.turn != Player.computer)
+                return;
+
+            Button button = (Button)sender;
+            Card card = (Card)button.Tag;
+
+            if (GameBoardVM.tryPlay(card))
+            {
+                UpdateComputerField();
+                UpdateLastCard();
+            }
+        }
+
+        private void UpdateHandForPlayer(StackPanel field, List<Card> hand, Action<object, EventArgs> cb)
         {
             ClearPlayField(field);
-            foreach (var card in hand)
+            for (int i = 0; i < hand.Count; i++)
             {
-                Image CardImage = new Image();
-                CardImage.Height = CARD_HEIGHT;
-                CardImage.Width = CARD_WIDTH;
-                CardImage.Source = new BitmapImage(new Uri(card.ImageLocation, UriKind.Relative));
-                field.Children.Add(CardImage);
+                Card card = hand[i];
+                Button button = new Button
+                {
+                    Tag = card,
+                    Width = CARD_WIDTH,
+                    Height = CARD_HEIGHT,
+                    Content = new Image
+                    {
+                        Source = new BitmapImage(new Uri(card.ImageLocation, UriKind.Relative)),
+                        VerticalAlignment = VerticalAlignment.Center
+                    }
+                };
+                button.Click += cb.Invoke;
+                field.Children.Add(button);
             }
         }
 
         private void UpdatePlayerField()
         {
-            UpdateHandForPlayer(PlayerField, GameBoardVM.PlayerHand);
+            UpdateHandForPlayer(PlayerField, GameBoardVM.PlayerHand, HandlePlayerCardClick);
         }
 
         private void UpdateComputerField()
         {
-            UpdateHandForPlayer(ComputerField, GameBoardVM.ComputerHand);
+            UpdateHandForPlayer(ComputerField, GameBoardVM.ComputerHand, HandleComputerCardClick);
         }
 
         private void ClearPlayField(StackPanel field)

@@ -12,6 +12,9 @@ namespace Uno.Models
     [DataContract]
     public class Card
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Face Face
         {
             get
@@ -36,11 +39,14 @@ namespace Uno.Models
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Color Color
         {
             get
             {
-                if (Face == Face.Wild)
+                if (Face == Face.Wild || Face == Face.Draw4)
                 {
                     return Color.Wild;
                 }
@@ -49,7 +55,7 @@ namespace Uno.Models
                     case "CLUBS":
                         return Color.Red;
                     case "DIAMONDS":
-                        return Color.Blue;
+                       return Color.Blue;
                     case "HEARTS":
                         return Color.Yellow;
                     case "SPADES":
@@ -60,11 +66,21 @@ namespace Uno.Models
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
         public static string ColorAsString(Color color)
         {
             return color.ToString().Substring(0, 1).ToLower();
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="face"></param>
+        /// <returns></returns>
         public static string FaceAsString(Face face)
         {
             switch (face) {
@@ -82,9 +98,12 @@ namespace Uno.Models
                     return (int)face + "";
             }
         }
-        public string ImageLocation { get
-            {
-                
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ImageLocation {
+            get {
                 return $"\\Assets\\{Card.ColorAsString(Color)}{Card.FaceAsString(Face)}.png";
             }
         }
