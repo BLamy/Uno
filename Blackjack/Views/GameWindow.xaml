@@ -6,6 +6,56 @@
         xmlns:local="clr-namespace:Uno.Views"
         mc:Ignorable="d"
         Title="Uno" Height="476.873" Width="535.59" WindowState="Maximized">
+    <Window.Resources>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="MinHeight" Value="23"/>
+            <Setter Property="MinWidth" Value="75"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="Border" CornerRadius="2" BorderThickness="1"
+                    Background="Transparent"
+                    BorderBrush="Transparent">
+                            <ContentPresenter Margin="2" 
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center" 
+                                 RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter TargetName="Border" 
+                          Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="Border" 
+                          Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" 
+                          Property="Background" Value="Transparent" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" 
+                          Property="Background" Value="Transparent" />
+                                <Setter TargetName="Border" 
+                          Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" 
+                          Property="Background" Value="Transparent" />
+                                <Setter TargetName="Border" 
+                          Property="BorderBrush" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="/Blackjack;component/Assets/background.png"/>
     </Window.Background>
@@ -30,7 +80,7 @@
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Image Name="PlayPile" HorizontalAlignment="Left" Height="157" VerticalAlignment="Center" Width="113"/>
 
-            <Button x:Name="draw" HorizontalAlignment="Right" VerticalAlignment="Center" Width="113" Height="157" Click="draw_Click">
+            <Button x:Name="draw" HorizontalAlignment="Right" VerticalAlignment="Center" Width="113" Height="157" Click="draw_Click" BorderThickness="0" Background="Transparent">
                 <Button.Content>
                     <Image Source="/Assets/deck.png" />
                 </Button.Content>

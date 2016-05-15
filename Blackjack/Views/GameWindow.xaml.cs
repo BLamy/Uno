@@ -102,6 +102,9 @@ namespace Uno.Views
                     Tag = card,
                     Width = CARD_WIDTH,
                     Height = CARD_HEIGHT,
+                    BorderBrush = Brushes.Black,
+                    BorderThickness = new Thickness(0),
+                    Background = Brushes.Transparent,
                     Content = new Image
                     {
                         Source = new BitmapImage(new Uri(card.ImageLocation, UriKind.Relative)),
