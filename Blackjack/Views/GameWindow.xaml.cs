@@ -52,16 +52,34 @@ namespace Uno.Views
 
         private void render()
         {
+            this.checkGameOver();
+            this.UpdatePlayerField();
+            this.UpdateComputerField();
+            this.UpdateTurnArrow();
+            this.UpdateLastCard();
+        }
+
+        private void checkGameOver()
+        {
             if (this.GameBoardVM.isGameover())
             {
                 GameOverWindow gameoverWindow = new GameOverWindow(this.GameBoardVM.winner(), this.PlayerName);
                 gameoverWindow.Show();
                 this.Close();
-            } else
+            }
+        }
+
+        private void UpdateTurnArrow()
+        {
+            if (this.GameBoardVM.turn == Player.computer)
             {
-                this.UpdatePlayerField();
-                this.UpdateComputerField();
-                this.UpdateLastCard();
+                this.ComputerTurnArrow.Visibility = Visibility.Visible;
+                this.playerTurnArrow.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                this.ComputerTurnArrow.Visibility = Visibility.Hidden;
+                this.playerTurnArrow.Visibility = Visibility.Visible;
             }
         }
 
@@ -91,7 +109,6 @@ namespace Uno.Views
 
             Button button = (Button)sender;
             Card card = (Card)button.Tag;
-
             if (GameBoardVM.tryPlay(card))
             {
                 this.render();
@@ -148,6 +165,7 @@ namespace Uno.Views
         private void draw_Click(object sender, RoutedEventArgs e)
         {
             this.GameBoardVM.DrawCard();
+            this.checkGameOver();
             if (this.GameBoardVM.turn == Player.player)
             {
                 UpdatePlayerField();
@@ -155,7 +173,6 @@ namespace Uno.Views
             else
             {
                 UpdateComputerField();
-
             }
         }
     }

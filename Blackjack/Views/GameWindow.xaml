@@ -70,11 +70,16 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <StackPanel Name="ComputerTurnArrow" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden">
+            <Image Source="/Assets/arrow.png" />
+        </StackPanel>
 
         <StackPanel Name="ComputerPanel" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Name="ComputerField" Orientation="Horizontal">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
+                <StackPanel Name="ComputerField" Orientation="Horizontal">
 
-            </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
@@ -86,11 +91,15 @@
                 </Button.Content>
             </Button>
         </StackPanel>
-
+        <StackPanel Name="playerTurnArrow" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Source="/Assets/arrow.png" />
+        </StackPanel>
         <StackPanel Name="PlayerPanel" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Name="PlayerField" Orientation="Horizontal">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
+                <StackPanel Name="PlayerField" Orientation="Horizontal">
 
-            </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 </Window>
