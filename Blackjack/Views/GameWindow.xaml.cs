@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Uno.Models;
+using Blackjack.Views;
 
 namespace Uno.Views
 {
@@ -35,8 +36,6 @@ namespace Uno.Views
 
         const int CARD_HEIGHT = 157;
 
-        Image FaceDownImage;
-
         public GameWindow(String playerName)
         {
             this.PlayerName = playerName;
@@ -53,9 +52,17 @@ namespace Uno.Views
 
         private void render()
         {
-            this.UpdatePlayerField();
-            this.UpdateComputerField();
-            this.UpdateLastCard();
+            if (this.GameBoardVM.isGameover())
+            {
+                GameOverWindow gameoverWindow = new GameOverWindow(this.GameBoardVM.winner(), this.PlayerName);
+                gameoverWindow.Show();
+                this.Close();
+            } else
+            {
+                this.UpdatePlayerField();
+                this.UpdateComputerField();
+                this.UpdateLastCard();
+            }
         }
 
         private void UpdateLastCard()

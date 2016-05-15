@@ -14,3 +14,5 @@ C:\Users\blamy\Uno\Blackjack\obj\Debug\Views\GameWindow.baml
 C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack.g.resources
 C:\Users\blamy\Uno\Blackjack\obj\Debug\Blackjack.Properties.Resources.resources
 C:\Users\blamy\Uno\Blackjack\obj\Debug\Uno.csproj.GenerateResource.Cache
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Views\GameOverWindow.g.cs
+C:\Users\blamy\Uno\Blackjack\obj\Debug\Views\GameOverWindow.baml

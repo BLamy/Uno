@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Blackjack.Models.Enums;
+using Uno.Views;
+using Blackjack.Views;
+using Uno.Services.Responses;
 
 namespace Uno.ViewModels
 {
     public enum Player
     {
+        none,
         player,
         computer
     }
@@ -30,6 +34,10 @@ namespace Uno.ViewModels
         public int numberOfPlayers { get; set; } = 2;
 
         public Player turn { get; set; } = Player.player;
+
+        public object PlayerName { get; private set; }
+
+        public int RemainingCards { get; private set; }
         #endregion
 
         DataService dataService;
@@ -89,7 +97,9 @@ namespace Uno.ViewModels
             DrawRequest drawReq = new DrawRequest();
             drawReq.DeckID = DeckId;
             drawReq.NumberOfCards = numberOfCards;
-            return dataService.Draw(drawReq).Cards;
+            DrawResponse drawRes = dataService.Draw(drawReq);
+            this.RemainingCards = drawRes.RemainingCards;
+            return drawRes.Cards;
         }
 
         private List<Card> activeHand()
@@ -102,11 +112,30 @@ namespace Uno.ViewModels
             this.turn = (this.turn == Player.player) ? Player.computer : Player.player;
         }
 
+        /// <summary>
+        /// Win condition
+        /// </summary>
+        /// <returns></returns>
+        public bool isGameover()
+        {
+            return (this.PlayerHand.Count == 0 || this.ComputerHand.Count == 0 || this.RemainingCards == 0 );
+        }
+
+        public Player winner()
+        {
+            if (this.PlayerHand.Count == 0)
+                return Player.player;
+            if (this.ComputerHand.Count == 0)
+                return Player.computer;
+            return Player.none;
+        }
+
         private void PlayCard(Card card)
         {
             this.activeHand().Remove(card);
             this.lastCard = card;
 
+            // Progress turns
             switch (card.Face)
             {
                 case Face.Skip:

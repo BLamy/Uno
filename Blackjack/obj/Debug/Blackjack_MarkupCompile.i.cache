@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\blamy\Uno\Blackjack\App.xaml
-2-1029191845
+3-517171794
 
-20-906961546
+21-197043738
 14-239231678
-MainWindow.xaml;Views\GameWindow.xaml;
+MainWindow.xaml;Views\GameOverWindow.xaml;Views\GameWindow.xaml;
 
 True
 
