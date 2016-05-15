@@ -40,43 +40,6 @@ namespace Uno.ViewModels
             NewGame();
         }
 
-        private void NewGame()
-        {
-            DeckId = dataService.NewDecks(1);
-            DealInitialHands();
-        }
-
-        private void DealInitialHands()
-        {
-            PlayerHand = Draw(7);
-            ComputerHand = Draw(7);
-            lastCard = Draw(1)[0];
-            while (lastCard.Color == Color.Wild)
-            {
-                lastCard = Draw(1)[0];
-            }
-        }
-
-        private List<Card> Draw(int numberOfCards)
-        {
-            DrawRequest drawReq = new DrawRequest();
-            drawReq.DeckID = DeckId;
-            drawReq.NumberOfCards = numberOfCards;
-            return dataService.Draw(drawReq).Cards;
-        }
-
-        private List<Card> activeHand()
-        {
-            return (this.turn == Player.player) ? this.PlayerHand : this.ComputerHand;
-        }
-
-        private void PlayCard(Card card)
-        {
-            this.activeHand().Remove(card);
-            this.lastCard = card;
-            turn = (turn == Player.player) ? Player.computer : Player.player;
-        }
-
         public bool tryPlay(Card card)
         {
             // Sanity check to make sure the card is even in the hand. 
@@ -98,5 +61,48 @@ namespace Uno.ViewModels
 
             return false;
         }
+
+        public void DrawCard()
+        {
+            this.activeHand().Add(this.RequestCards(1)[0]);
+        }
+
+        private void NewGame()
+        {
+            DeckId = dataService.NewDecks(1);
+            DealInitialHands();
+        }
+
+        private void DealInitialHands()
+        {
+            PlayerHand = RequestCards(7);
+            ComputerHand = RequestCards(7);
+            lastCard = RequestCards(1)[0];
+            while (lastCard.Color == Color.Wild)
+            {
+                lastCard = RequestCards(1)[0];
+            }
+        }
+
+        private List<Card> RequestCards(int numberOfCards)
+        {
+            DrawRequest drawReq = new DrawRequest();
+            drawReq.DeckID = DeckId;
+            drawReq.NumberOfCards = numberOfCards;
+            return dataService.Draw(drawReq).Cards;
+        }
+
+        private List<Card> activeHand()
+        {
+            return (this.turn == Player.player) ? this.PlayerHand : this.ComputerHand;
+        }
+
+        private void PlayCard(Card card)
+        {
+            this.activeHand().Remove(card);
+            this.lastCard = card;
+            turn = (turn == Player.player) ? Player.computer : Player.player;
+        }
+
     }
 }

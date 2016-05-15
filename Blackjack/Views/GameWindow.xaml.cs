@@ -130,5 +130,19 @@ namespace Uno.Views
             Console.Write(GameBoardVM.PlayerHand);
             Console.Write(GameBoardVM.ComputerHand);
         }
+
+        private void draw_Click(object sender, RoutedEventArgs e)
+        {
+            this.GameBoardVM.DrawCard();
+            if (this.GameBoardVM.turn == Player.player)
+            {
+                UpdatePlayerField();
+            }
+            else
+            {
+                UpdateComputerField();
+
+            }
+        }
     }
 }
