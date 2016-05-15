@@ -61,7 +61,7 @@ namespace Uno.Views
 
         private void checkGameOver()
         {
-            if (this.GameBoardVM.isGameover())
+            if (this.GameBoardVM.isGameover() && this.IsActive)
             {
                 GameOverWindow gameoverWindow = new GameOverWindow(this.GameBoardVM.winner(), this.PlayerName);
                 gameoverWindow.Show();
@@ -96,10 +96,7 @@ namespace Uno.Views
 
             Button button = (Button)sender;
             Card card = (Card)button.Tag;
-            if (GameBoardVM.tryPlay(card))
-            {
-                this.render();
-            }
+            GameBoardVM.tryPlay(card, () => this.Dispatcher.Invoke((Action)(() => render())));
         }
 
         private void HandleComputerCardClick(object sender, EventArgs e)
@@ -109,10 +106,9 @@ namespace Uno.Views
 
             Button button = (Button)sender;
             Card card = (Card)button.Tag;
-            if (GameBoardVM.tryPlay(card))
-            {
-                this.render();
-            }
+            ;
+
+            GameBoardVM.tryPlay(card, () => this.Dispatcher.Invoke((Action)(() => render())));
         }
 
         private void UpdateHandForPlayer(StackPanel field, List<Card> hand, Action<object, EventArgs> cb)

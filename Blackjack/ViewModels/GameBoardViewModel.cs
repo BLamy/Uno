@@ -10,6 +10,8 @@ using Blackjack.Models.Enums;
 using Uno.Views;
 using Blackjack.Views;
 using Uno.Services.Responses;
+using System.Windows;
+using Blackjack.Util;
 
 namespace Uno.ViewModels
 {
@@ -48,7 +50,7 @@ namespace Uno.ViewModels
             NewGame();
         }
 
-        public bool tryPlay(Card card)
+        public bool canPlay(Card card)
         {
             // Sanity check to make sure the card is even in the hand. 
             bool isInHand = this.activeHand().FindIndex(item => item == card) != -1;
@@ -62,11 +64,23 @@ namespace Uno.ViewModels
             bool isSameNumber = card.Face == this.lastCard.Face;
 
             if (isWild || isSameColor || isSameNumber)
+                return true;
+
+            return false;
+        }
+
+        public List<Card> validMoves()
+        {
+            return this.activeHand().FindAll(card => this.canPlay(card));
+        }
+
+        public bool tryPlay(Card card, Action done)
+        {
+            if (this.canPlay(card))
             {
-                this.PlayCard(card);
+                this.PlayCard(card, done);
                 return true;
             }
-
             return false;
         }
 
@@ -130,7 +144,7 @@ namespace Uno.ViewModels
             return Player.none;
         }
 
-        private void PlayCard(Card card)
+        private void PlayCard(Card card, Action done)
         {
             this.activeHand().Remove(card);
             this.lastCard = card;
@@ -161,7 +175,36 @@ namespace Uno.ViewModels
                     this.nextTurn();
                     break;
             }
+            if (this.turn == Player.computer)
+            {
+                this.makeComputerMove(done);
+            }
+            done();
+        }
 
+        private void makeComputerMove(Action done)
+        {
+            Timer.SetTimeout(() => {
+                Card bestMove = this.getRandomPlayableCard();
+                if (bestMove == null)
+                {
+                    this.ComputerHand.AddRange(this.RequestCards(1));
+                    this.makeComputerMove(done);
+                    done();
+                    return;
+                }
+                PlayCard(bestMove, done);
+            }, 500);
+        }
+
+        public Card getRandomPlayableCard()
+        {
+            var cards = this.validMoves();
+            if (cards.Count == 0 )
+                return null;
+
+            Random rnd = new Random();
+            return cards[rnd.Next(cards.Count)];
         }
 
     }

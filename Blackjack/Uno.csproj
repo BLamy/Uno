@@ -66,6 +66,7 @@
     <Compile Include="Services\Responses\DeckResponse.cs" />
     <Compile Include="Services\Responses\DrawResponse.cs" />
     <Compile Include="Services\ServiceManager.cs" />
+    <Compile Include="Util\Timer.cs" />
     <Compile Include="ViewModels\GameBoardViewModel.cs" />
     <Compile Include="Views\GameOverWindow.xaml.cs">
       <DependentUpon>GameOverWindow.xaml</DependentUpon>
