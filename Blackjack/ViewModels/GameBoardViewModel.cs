@@ -64,7 +64,7 @@ namespace Uno.ViewModels
 
         public void DrawCard()
         {
-            this.activeHand().Add(this.RequestCards(1)[0]);
+            this.activeHand().AddRange(this.RequestCards(1));
         }
 
         private void NewGame()
@@ -97,11 +97,42 @@ namespace Uno.ViewModels
             return (this.turn == Player.player) ? this.PlayerHand : this.ComputerHand;
         }
 
+        private void nextTurn()
+        {
+            this.turn = (this.turn == Player.player) ? Player.computer : Player.player;
+        }
+
         private void PlayCard(Card card)
         {
             this.activeHand().Remove(card);
             this.lastCard = card;
-            turn = (turn == Player.player) ? Player.computer : Player.player;
+
+            switch (card.Face)
+            {
+                case Face.Skip:
+                    this.nextTurn();
+                    this.nextTurn();
+                    break;
+
+                case Face.Draw2:
+                    this.nextTurn();
+                    this.activeHand().AddRange(this.RequestCards(2));
+                    this.nextTurn();
+                    break;
+
+                case Face.Draw4:
+                    this.nextTurn();
+                    this.activeHand().AddRange(this.RequestCards(4));
+                    this.nextTurn();
+                    break;
+                case Face.Wild:
+                    break;
+
+                default:
+                    this.nextTurn();
+                    break;
+            }
+
         }
 
     }

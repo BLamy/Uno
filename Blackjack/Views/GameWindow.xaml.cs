@@ -46,11 +46,16 @@ namespace Uno.Views
 
         private void CreateNewGame()
         {
-            this.PlayerTextBlock.Text = $"Player: {this.PlayerName}";
+            //this.PlayerTextBlock.Text = $"Player: {this.PlayerName}";
             this.GameBoardVM = new GameBoardViewModel();
-            UpdatePlayerField();
-            UpdateComputerField();
-            UpdateLastCard();
+            this.render();
+        }
+
+        private void render()
+        {
+            this.UpdatePlayerField();
+            this.UpdateComputerField();
+            this.UpdateLastCard();
         }
 
         private void UpdateLastCard()
@@ -68,8 +73,7 @@ namespace Uno.Views
             Card card = (Card)button.Tag;
             if (GameBoardVM.tryPlay(card))
             {
-                UpdatePlayerField();
-                UpdateLastCard();
+                this.render();
             }
         }
 
@@ -83,8 +87,7 @@ namespace Uno.Views
 
             if (GameBoardVM.tryPlay(card))
             {
-                UpdateComputerField();
-                UpdateLastCard();
+                this.render();
             }
         }
 
@@ -105,6 +108,7 @@ namespace Uno.Views
                         VerticalAlignment = VerticalAlignment.Center
                     }
                 };
+                
                 button.Click += cb.Invoke;
                 field.Children.Add(button);
             }

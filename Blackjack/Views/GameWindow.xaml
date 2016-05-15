@@ -6,12 +6,14 @@
         xmlns:local="clr-namespace:Uno.Views"
         mc:Ignorable="d"
         Title="Uno" Height="476.873" Width="535.59" WindowState="Maximized">
+    <Window.Background>
+        <ImageBrush ImageSource="/Blackjack;component/Assets/background.png"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="52*" />
-            <ColumnDefinition Width="214*"/>
-            <ColumnDefinition Width="87*"/>
-            <ColumnDefinition Width="175*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -19,30 +21,26 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Name="ComputerPanel" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+        <StackPanel Name="ComputerPanel" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Name="ComputerField" Orientation="Horizontal">
 
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Column="3" Grid.Row="0">
-            <Image Source="/Assets/computer.png" Width="75" HorizontalAlignment="Left" />
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Image Name="PlayPile" HorizontalAlignment="Left" Height="157" VerticalAlignment="Center" Width="113"/>
+
+            <Button x:Name="draw" HorizontalAlignment="Right" VerticalAlignment="Center" Width="113" Height="157" Click="draw_Click">
+                <Button.Content>
+                    <Image Source="/Assets/deck.png" />
+                </Button.Content>
+            </Button>
         </StackPanel>
 
-        <StackPanel Name="PlayerPanel" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
-            <TextBlock Name="PlayerTextBlock" FontSize="18"></TextBlock>
+        <StackPanel Name="PlayerPanel" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Name="PlayerField" Orientation="Horizontal">
 
             </StackPanel>
-            <StackPanel Orientation="Horizontal"/>
         </StackPanel>
-
-        <StackPanel Grid.Column="3" Grid.Row="2">
-            <Image Source="/Assets/player.png" Width="75" HorizontalAlignment="Left" />
-            <TextBlock Name="PlayerScoreTextBlock" FontSize="20" FontWeight="Bold"></TextBlock>
-            <Button x:Name="button" Content="Do the Thing" Click="button_Click"/>
-        </StackPanel>
-        <Image Name="PlayPile" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="10,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="draw" Grid.ColumnSpan="2" Content="Draw" Grid.Column="1" HorizontalAlignment="Left" Margin="148,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="draw_Click"/>
     </Grid>
 </Window>
